@@ -14,8 +14,12 @@ TARGET_OTA_ASSERT_DEVICE := OnePlus7Pro
 # Display
 TARGET_SCREEN_DENSITY := 560
 
-# Kernel
-TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
+# Vendor init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_guacamole
+TARGET_RECOVERY_DEVICE_MODULES := libinit_guacamole
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
@@ -35,7 +39,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
-TARGET_PREBUILT_RECOVERY_RAMDISK_CPIO := $(DEVICE_PATH)/ramdisk-recovery.cpio
 
 # Treble
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml

@@ -12,15 +12,10 @@ $(call inherit-product, vendor/oneplus/guacamole/guacamole-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-du
-
-# TouchLatency
-PRODUCT_PACKAGES += \
-    TouchLatency
+    $(LOCAL_PATH)/overlay-aosp
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/mixer_paths_11811.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_11811.xml \
     $(LOCAL_PATH)/audio/mixer_paths_pahu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_pahu.xml \
     $(LOCAL_PATH)/audio/mixer_paths_tavil.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tavil.xml
 
@@ -32,10 +27,9 @@ PRODUCT_PACKAGES += \
 
 # Device init scripts
 PRODUCT_PACKAGES += \
-    fstab.qcom
+    fstab.qcom \
+    init.display.guacamole.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.refresh_rate_switching=true

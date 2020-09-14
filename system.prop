@@ -1,0 +1,2 @@
+# Automatic refresh rate switching
+ro.surface_flinger.use_smart_90_for_video=true
